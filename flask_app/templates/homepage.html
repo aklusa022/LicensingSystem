@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<div class="wholepage">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+              crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/homepage.css') }}">
+
+    </head>
+    <body>
+    <div class="parent">
+        <img class="thelogo" src="{{ url_for('static', filename='img/profileedit.png') }}">
+        <div class="options">
+            <button class="btn btn-primary">How to Implement</button>
+            <button class="btn btn-danger">About Us</button>
+        </div>
+    </div>
+
+    <div class="main form-group">
+        <h1 class="head-title text-">Hyperlink Licensing System</h1>
+        <h4 class="corrections">Alrighty little douchbags!</h4>
+        <h4 class="corrections">Since you couldn't make a proper licensing</h4>
+        <h4 class="corrections">system, I have made one for you.</h4>
+        <h4 class="corrections">Here are the steps to making it work:</h4>
+        <h5 class="corrections text-muted">1. Create an account</h5>
+        <h5 class="corrections text-muted">2. Login</h5>
+        <h5 class="corrections text-muted">3. Buy the monthly subscription</h5>
+        <h5 class="corrections text-muted">Follow the documentation</h5>
+        <h6 class="text-muted head-title  trademark-footer">@ 2020 - 2021</h6>
+        <h6 class="text-muted head-title"> Hyperlink Holdings LLC</h6>
+        <form class="corrections">
+            <button class="btn btn-success" formaction="/login">Login</button>
+            <button class="btn btn-primary" formaction="/register">Register</button>
+        </form>
+    </div>
+
+
+    </body>
+</div>
+</html>

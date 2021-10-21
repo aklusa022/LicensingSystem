@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: "Calibri Light";
+}
+
+body {
+    background-color: #33404d;
+}
+
+.wholepage {
+
+}
+
+.main {
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 800px;
+    border-radius: 60px;
+    padding: 30px;
+
+
+}
+
+.head-title {
+    text-align: center;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    border-radius: 30%;
+}
+
+.corrections {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    border-radius: 30%;
+}
+
+.table-corrections {
+    background-color: white;
+}
+
+.trademark-footer {
+    margin-top: 30px;
+}
+
+.links {
+    margin-top: 10px;
+}
+
+.parent {
+    display: flex;
+    justify-content: end;
+}
+
+.options {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.btn {
+    margin-left: 10px;
+    color: white;
+}
+
+pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+.thelogo {
+    margin-right: auto;
+    margin-left: 10px;
+    width: 350px;
+}
+
+.actions {
+    height: 10px;
+
+}
+
+.small {
+    width: 110px;
+    font-size: 13px;
+}
+
+.makeapikey {
+    margin-left: 80%;
+}
+
+
+
+

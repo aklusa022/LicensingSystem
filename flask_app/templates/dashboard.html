@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<div class="wholepage">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+              crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+    </head>
+    <body>
+
+    <div class="parent">
+        <img class="thelogo" src="{{ url_for('static', filename='img/profileedit.png') }}">
+        <div class="options">
+            <form>
+                <button class="btn btn-primary links">How to Implement</button>
+                <button class="btn btn-success links">Payment</button>
+                <button class="btn btn-danger links">About Us</button>
+                <button class="btn btn-warning links" formaction="/logout">Logout</button>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="main">
+        <h1 class="corrections">Your API Keys</h1>
+    <form>
+        <button class="btn btn-info makeapikey" formaction="/makeproduct">Create API Key</button>
+    </form>
+
+        <table class="table table-corrections">
+            <thead class="">
+            <tr>
+                <th>Product Name</th>
+                <th>API Key</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for avalue in apilist %}
+                <tr>
+                    <th>{{ avalue.product_name }}</th>
+                    <th>
+                        <pre><code>{{ avalue.api_key }}</code></pre>
+                    </th>
+                    <th>
+                        <div class="actions">
+                            <form>
+                                <button class="btn btn-danger small" value="{{ avalue.id }}" formaction="/deleteproduct" name="apikey_id_del" formmethod="post">Delete Product</button>
+                                <button class="btn btn-info small" value="{{ avalue.id }}" name="apikey_id" formaction="/toggleviewlicense" formmethod="post">View Licenses</button>
+                            </form>
+
+                        </div>
+
+                    </th>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+
+    </body>
+</div>
+</html>
