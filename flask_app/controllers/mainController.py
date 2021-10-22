@@ -147,6 +147,17 @@ def revoke():
     return redirect("/licensekeys")
 
 
+@app.route("/request_reset_password")
+def resetpasspage():
+    return 'shit'
+
+@app.route("/reset")
+def resetfun():
+    return 'oterhs'
+
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html')
+
+

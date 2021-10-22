@@ -8,6 +8,19 @@ from flask_bcrypt import Bcrypt
 from flask_app import app
 import re
 
+from flask_mail import Mail, Message
+
+mail = Mail(app)
+
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+
+app.config['MAIL_SERVER'] = 'smtp.sendgrid.net'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'apikey'
+app.config['MAIL_PASSWORD'] = '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'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 bcrypt = Bcrypt(app)
@@ -60,7 +73,7 @@ class User:
 
     @classmethod
     def getuser(cls, data):
-        query = "select * from users where id=%(email)s;"
+        query = "select * from users where email=%(email)s;"
 
         send = connectToMySQL(dbname).query_db(query, data)
 
@@ -118,6 +131,17 @@ class User:
 
         return isApproved
 
+    @classmethod
+    def updatepasswordwithkey(cls, data):
+
+        pswhash = bcrypt.generate_password_hash(data['password'])
+
+        query = f'update users set password = "{pswhash}" where reset_key =%(reset_key)s'
+
+        send = connectToMySQL(dbname).query_db(query, data)
+
+        return send
+
     @staticmethod
     def regvalidate(data):
         is_valid = True
@@ -151,3 +175,10 @@ class User:
             is_valid = False
 
         return is_valid
+
+    @staticmethod
+    def sendemail(data):
+        msg = Message(data['message'], sender="no-reply@hyperlink-network.com", recipients=[data['email']])
+        msg.body = "The email bbbody"
+        mail.send(msg)
+        return "Sent"
