@@ -1,3 +1,4 @@
+import time
 from operator import sub
 
 import flask_bcrypt
@@ -14,12 +15,13 @@ mail = Mail(app)
 
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
-app.config['MAIL_SERVER'] = 'smtp.sendgrid.net'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'apikey'
-app.config['MAIL_PASSWORD'] = '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'
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_SERVER'] = 'smtp-relay.sendinblue.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USERNAME'] = 'aklusa02@yandex.ru'
+app.config[
+    'MAIL_PASSWORD'] = 'xsmtpsib-8030c7d67a90973584f9aebb47ac48fb8ca1fb691c302a2bfeb4e087447ed55d-wS2GvBpKtWbmA3zs'
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
@@ -142,6 +144,39 @@ class User:
 
         return send
 
+    @classmethod
+    def checktoken(cls, data):
+        is_valid = True
+        query = 'select reset_key from users where reset_key=%(token)s'
+
+        send = connectToMySQL(dbname).query_db(query, data)
+
+        if len(send) < 1:
+            is_valid = False
+
+        return is_valid
+
+    @classmethod
+    def makekey(cls, data):
+
+        query = f'update users set reset_key = %(token)s  where email =%(email)s'
+
+        send = connectToMySQL(dbname).query_db(query, data)
+        return send
+
+    @classmethod
+    def counter(cls, data):
+        User.makekey(data)
+        t = 300
+        while t:
+            mins, secs = divmod(t, 30)
+            timer = '{:02d}:{:02d}'.format(mins, secs)
+            print(timer, end="\r")
+            time.sleep(1)
+            t -= 1
+
+        print('Fire in the hole!!')
+
     @staticmethod
     def regvalidate(data):
         is_valid = True
@@ -178,7 +213,20 @@ class User:
 
     @staticmethod
     def sendemail(data):
-        msg = Message(data['message'], sender="no-reply@hyperlink-network.com", recipients=[data['email']])
-        msg.body = "The email bbbody"
+        msg = Message("Hyperlink Account Password Reset", sender="no-reply@hyperlink-network.com",
+                      recipients=[f"{data['email']}"])
+        msg.body = f'Your account password reset link is https://licensesystem.hyperlink-network.com/reset/{data["token"]}'
         mail.send(msg)
         return "Sent"
+
+    @staticmethod
+    def resetvalidate(data):
+        is_valid = True
+        if not EMAIL_REGEX.match(data['email']):
+            is_valid = False
+        if not User.emailexists(data):
+            is_valid = False
+        if data['password'] != data['confirm-password']:
+            is_valid = False
+            flash(u"Passwords Don't match", 'mkpass')
+        return is_valid

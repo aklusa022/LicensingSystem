@@ -1,7 +1,10 @@
+import time
+
 from flask import render_template, session, request, redirect, flash
 from flask_app import app
 from flask_app.models import user, apikeys, licensekeys
 from random import random, randrange, randint
+import time
 
 
 @app.route("/")
@@ -12,6 +15,7 @@ def mainPage():
     session['api_id'] = ""
     session['viewingLicenses'] = False
     session['revokeProcess'] = False
+    session['reset_token'] = ""
 
     return render_template("homepage.html")
 
@@ -149,11 +153,40 @@ def revoke():
 
 @app.route("/request_reset_password")
 def resetpasspage():
-    return 'shit'
 
-@app.route("/reset")
-def resetfun():
-    return 'oterhs'
+    return render_template("resetpass.html")
+
+@app.route("/sendtoken", methods=['GET', 'POST'])
+def resetfunc():
+    rs_token = randint(100000000, 999999999)
+    data = {"email": request.form['email'], "token": rs_token}
+    if not user.User.checkemail(data):
+        return redirect("/request_reset_password")
+    else:
+        user.User.makekey(data)
+        user.User.sendemail(data)
+    flash(u"Check your email for password reset link", 'resetpass')
+    return redirect("/request_reset_password")
+
+@app.route("/reset/<string:token>")
+def passchangepage(token):
+
+    data = {"token": token}
+
+    if not user.User.checktoken(data):
+        return redirect("/request_reset_password")
+    else:
+        return render_template("createnewpassword.html", token=token)
+
+@app.route("/updatepass", methods=['GET','POST'])
+def updatepass():
+
+    data = {}
+
+
+    return
+
+
 
 
 @app.errorhandler(404)
