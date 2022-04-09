@@ -32,7 +32,7 @@ License Verification from Console Perspective:
 
 ![](https://i.gyazo.com/646ab3dff52dd6bd250eae58d718d2ee.gif)
 
-## Installation
+## OMG, thats so cool! How do I install it?
 
 1. Ensure that Python 3.7+ is installed on your computer along with MySQL Workbench (or other database management software), along with MySQL Server 8+
 2. Unzip file and open the Licensing System directory in your terminal.
