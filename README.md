@@ -4,16 +4,29 @@
 
 I've created an intuitive licensing system which allows plugin developers to easily secure their plugins. It works in conjunction with an API written in Java that can be downloaded [here](https://github.com/aklu0830/Hyperlink-Licensing-System).
 
-## Showcase
+## Server-Side Showcase
+
+
 
 License Verification from Console Perspective:
 
-Invalid:
+### Invalid Key:
+
 ![](https://i.gyazo.com/1d009f21f33a543fd84657d705ec1470.gif)
 
-Valid:
+### Valid Key:
+
 ![](https://i.gyazo.com/6f585cc720b9e7c44334989604fc53b8.gif)
 
+
+
+## Web Interface Showcase
+
+
+
+### Product Creation:
+
+![](https://i.gyazo.com/2137365169f671069d0328e45d3792dc.gif)
 
 ## Installation
 
