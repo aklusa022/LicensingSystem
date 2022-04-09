@@ -6,7 +6,14 @@ I've created an intuitive licensing system which allows plugin developers to eas
 
 ## Showcase
 
+License Verification from Console Perspective:
+
+Invalid:
 ![](https://i.gyazo.com/1d009f21f33a543fd84657d705ec1470.gif)
+
+Valid:
+![](https://i.gyazo.com/6f585cc720b9e7c44334989604fc53b8.gif)
+
 
 ## Installation
 
