@@ -1,4 +1,4 @@
 # LicensingSystem
 
-![](https://gyazo.com/1220f74a17660dc5e256834dab57b8a8)
+![](https://i.gyazo.com/6f585cc720b9e7c44334989604fc53b8.gif)
  
