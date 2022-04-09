@@ -6,7 +6,8 @@ I've created an intuitive licensing system which allows plugin developers to eas
 
 ## Installation
 
-1. Ensure that Python 3.7+ is installed on your computer
+1. Ensure that Python 3.7+ is installed on your computer along with MySQL Workbench (or other database management software), along with MySQL Server 8+
 2. Unzip file and open the Licensing System directory in your terminal.
 3. Execute ```pip install -r requirements.txt```
+4. 
  
