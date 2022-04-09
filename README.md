@@ -4,6 +4,10 @@
 
 I've created an intuitive licensing system which allows plugin developers to easily secure their plugins. It works in conjunction with an API written in Java that can be downloaded [here](https://github.com/aklu0830/Hyperlink-Licensing-System).
 
+## Showcase
+
+![](https://i.gyazo.com/1d009f21f33a543fd84657d705ec1470.gif)
+
 ## Installation
 
 1. Ensure that Python 3.7+ is installed on your computer along with MySQL Workbench (or other database management software), along with MySQL Server 8+
