@@ -36,8 +36,8 @@ License Verification from Console Perspective:
 
 1. Ensure that Python 3.7+ is installed on your computer along with MySQL Workbench (or other database management software), along with MySQL Server 8+
 2. Unzip file and open the Licensing System directory in your terminal.
-3. Execute ```pip install -r requirements.txt```
-4. Open MySQL Workbench and connect to the MySQL Server you wish to use. You will see an open prompt where you can execute queries. Paste the following:
+3. Execute ```pip install -r requirements.txt``` to install dependencies
+4. Open MySQL Workbench and connect to the MySQL Server you wish to use. You will see an open prompt where you can execute queries. Paste the following in order to properly setup the database:
 
 ```
 
@@ -96,5 +96,5 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 ```
-
+5. Next open go to the ```config``` folder and open ```mysqlconnection.py```. You will need to edit set ```host``` to your database server ip address. Next set ```user``` equal to whatever you set up your MySQL user to be. Finally set ```password``` for the MySQL user you chose to use.
  
