@@ -30,7 +30,7 @@ License Verification from Console Perspective:
 
 ### License Key Creation
 
-![](https://gyazo.com/646ab3dff52dd6bd250eae58d718d2ee)
+![](https://i.gyazo.com/646ab3dff52dd6bd250eae58d718d2ee.gif)
 
 ## Installation
 
