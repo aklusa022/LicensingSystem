@@ -96,5 +96,5 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 ```
-5. Next open go to the ```config``` folder and open ```mysqlconnection.py```. You will need to edit set ```host``` to your database server ip address. Next set ```user``` equal to whatever you set up your MySQL user to be. Finally set ```password``` for the MySQL user you chose to use.
+5. Next open go to the ```config``` folder and open ```mysqlconnection.py```. You will need to set ```host``` to your MySQL Server IP address (localhost if database is on the same machine). Next set ```user``` equal to whatever you set up your MySQL user to be. Finally set ```password``` for the MySQL user you chose to use.
  
