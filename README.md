@@ -28,6 +28,10 @@ License Verification from Console Perspective:
 
 ![](https://i.gyazo.com/2137365169f671069d0328e45d3792dc.gif)
 
+### License Key Creation
+
+![](https://gyazo.com/646ab3dff52dd6bd250eae58d718d2ee)
+
 ## Installation
 
 1. Ensure that Python 3.7+ is installed on your computer along with MySQL Workbench (or other database management software), along with MySQL Server 8+
