@@ -97,4 +97,10 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 ```
 5. Next open go to the ```config``` folder and open ```mysqlconnection.py```. You will need to set ```host``` to your MySQL Server IP address (localhost if database is on the same machine). Next set ```user``` equal to whatever you set up your MySQL user to be. Finally set ```password``` for the MySQL user you chose to use.
- 
+
+## Startup:
+
+In order to start the webapp, cd into the flask_app directory with your terminal. Execute ```python server.py``` to start the webapp. The webapp should now be running on at the following URL http://localhost:5000.
+
+
+
