@@ -66,3 +66,11 @@
     margin-left: 10px;
     width: 350px;
 }
+
+.ss {
+    display: flex;
+    justify-content: center;
+    font-family: "Comic Sans MS";
+    color: #33404d;
+
+}
